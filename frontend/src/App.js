@@ -1,52 +1,73 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { useState, useCallback } from 'react';
+import '@/App.css';
+import PasswordGate from '@/components/PasswordGate';
+import ParticleCanvas from '@/components/ParticleCanvas';
+import CustomCursor from '@/components/CustomCursor';
+import MusicPlayer from '@/components/MusicPlayer';
+import RomanticTimeline from '@/components/RomanticTimeline';
+import ValentineProposal from '@/components/ValentineProposal';
+import FinalDeclaration from '@/components/FinalDeclaration';
+import ShootingStars from '@/components/ShootingStars';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+function App() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [showFinal, setShowFinal] = useState(false);
+  const [musicReady, setMusicReady] = useState(false);
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+  const handlePasswordSuccess = useCallback(() => {
+    setIsUnlocked(true);
+    setMusicReady(true);
+  }, []);
 
-  useEffect(() => {
-    helloWorldApi();
+  const handleYes = useCallback(() => {
+    setShowFinal(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+    <div className="App" data-testid="app-root">
+      <CustomCursor />
+      <ParticleCanvas variant={isUnlocked ? 'light' : 'dark'} />
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <AnimatePresence mode="wait">
+        {!isUnlocked && (
+          <PasswordGate key="gate" onSuccess={handlePasswordSuccess} />
+        )}
+      </AnimatePresence>
+
+      {isUnlocked && (
+        <>
+          <ShootingStars />
+          <MusicPlayer shouldPlay={musicReady} />
+
+          <AnimatePresence mode="wait">
+            {!showFinal ? (
+              <motion.main
+                key="main-content"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+                data-testid="main-content"
+              >
+                <RomanticTimeline />
+                <ValentineProposal onYes={handleYes} />
+              </motion.main>
+            ) : (
+              <motion.div
+                key="final"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                data-testid="final-content"
+              >
+                <FinalDeclaration />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      )}
     </div>
   );
 }
