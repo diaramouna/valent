@@ -107,10 +107,8 @@ const FinalDeclaration = () => {
           transition={{ duration: 1.2, delay: 1 }}
           data-testid="final-message"
         >
-          Tu es la plus belle chose qui me soit arrivée.
-          Chaque battement de mon cœur murmure ton nom.
-          Ce soir et pour toujours, tu es ma Valentine,
-          mon étoile, mon amour, ma raison de sourire.
+            Je voulais simplement te dire une chose essentielle : je suis amoureux de toi again.
+        
         </motion.p>
 
         <motion.div

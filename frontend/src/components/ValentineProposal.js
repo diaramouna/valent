@@ -38,7 +38,7 @@ const ValentineProposal = ({ onYes }) => {
         transition={{ duration: 1, type: 'spring' }}
         data-testid="proposal-question"
       >
-        Veux-tu être ma Valentine ce soir ?
+        Veux-tu être ma Valentine le temps de cette soirée ?
       </motion.h2>
 
       <div className="proposal-buttons" style={{ position: 'relative', minHeight: 120, minWidth: 300 }}>
