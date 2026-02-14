@@ -4,15 +4,15 @@ import { Heart, Star, Sparkles } from 'lucide-react';
 
 const MESSAGES = [
   {
-    text: "Ma chère Haby,\n\nDepuis que tu es entrée dans ma vie, chaque jour est devenu plus beau, plus lumineux, plus magique...",
+    text: "Haby,\n\nJe voulais simplement te dire une chose essentielle : je suis amoureux de toi again.",
     delay: 0,
   },
   {
-    text: "Ton sourire illumine mes journées les plus sombres. Ta voix est la mélodie qui apaise mon cœur. Ta présence est le plus beau cadeau que la vie m'ait offert.",
+    text: "Tu comptes énormément pour moi, plus que tu ne l'imagines peut-être.\n\nAvec toi, j'imagine quelque chose de beau et de vrai... il m'arrive d'imaginer mon futur avec toi.",
     delay: 0,
   },
   {
-    text: "Je chéris chaque instant passé à tes côtés, chaque rire partagé, chaque regard échangé. Tu es mon étoile, ma lumière, mon univers tout entier.",
+    text: "Et quoi qu'il arrive, tu peux compter sur moi.\n\nCette surprise aujourd'hui, c'est juste une petite façon de te montrer à quel point je tiens à toi.",
     delay: 0,
   },
 ];

@@ -10,10 +10,12 @@ const MusicPlayer = ({ shouldPlay }) => {
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4;
 
-    // Check for uploaded music in localStorage
+    // Check for uploaded music in localStorage, fallback to bundled melody
     const savedMusic = localStorage.getItem('valentine-music');
     if (savedMusic) {
       audioRef.current.src = savedMusic;
+    } else {
+      audioRef.current.src = '/romantic-melody.mp3';
     }
 
     return () => {

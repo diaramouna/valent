@@ -107,8 +107,17 @@ const FinalDeclaration = () => {
           transition={{ duration: 1.2, delay: 1 }}
           data-testid="final-message"
         >
-            Je voulais simplement te dire une chose essentielle : je suis amoureux de toi again.
-        
+          Je suis amoureux de toi again.
+          <br /><br />
+          Tu comptes énormément pour moi, plus que tu ne l'imagines peut-être.
+          <br /><br />
+          Avec toi, j'imagine quelque chose de beau et de vrai...
+          il m'arrive d'imaginer mon futur avec toi.
+          <br /><br />
+          Et quoi qu'il arrive, tu peux compter sur moi.
+          <br /><br />
+          Cette surprise aujourd'hui, c'est juste une petite façon
+          de te montrer à quel point je tiens à toi.
         </motion.p>
 
         <motion.div
