@@ -319,10 +319,10 @@
 
 .btn-no {
   padding: 0.8rem 2rem;
-  background: rgba(100,100,100,0.3);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(80, 20, 60, 0.5);
+  border: 1px solid rgba(255, 100, 130, 0.35);
   border-radius: 50px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 150, 170, 0.85);
   font-family: var(--font-body);
   font-size: 0.95rem;
   cursor: pointer;

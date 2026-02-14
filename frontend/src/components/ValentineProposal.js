@@ -5,7 +5,6 @@ import { Heart, HeartCrack } from 'lucide-react';
 const ValentineProposal = ({ onYes }) => {
   const [noPos, setNoPos] = useState({ x: 0, y: 0 });
   const [noVisible, setNoVisible] = useState(true);
-  const [noOpacity, setNoOpacity] = useState(1);
   const [yesHovered, setYesHovered] = useState(false);
   const containerRef = useRef(null);
 
@@ -15,13 +14,11 @@ const ValentineProposal = ({ onYes }) => {
     const newX = (Math.random() - 0.5) * vw * 0.7;
     const newY = (Math.random() - 0.5) * vh * 0.5;
     setNoPos({ x: newX, y: newY });
-    setNoOpacity(prev => Math.max(prev - 0.2, 0));
   }, []);
 
   const handleYesHover = () => {
     setYesHovered(true);
-    setNoOpacity(prev => Math.max(prev - 0.3, 0));
-    if (noOpacity <= 0.3) setNoVisible(false);
+    setNoVisible(false);
   };
 
   return (
@@ -73,7 +70,6 @@ const ValentineProposal = ({ onYes }) => {
               animate={{
                 x: noPos.x,
                 y: noPos.y,
-                opacity: noOpacity,
               }}
               exit={{ opacity: 0, scale: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
