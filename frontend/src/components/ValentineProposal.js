@@ -10,15 +10,12 @@ const ValentineProposal = ({ onYes }) => {
   const containerRef = useRef(null);
 
   const moveNo = useCallback(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    const maxX = rect.width - 160;
-    const maxY = rect.height - 60;
-    const newX = Math.random() * maxX - maxX / 2;
-    const newY = Math.random() * maxY - maxY / 2;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const newX = (Math.random() - 0.5) * vw * 0.7;
+    const newY = (Math.random() - 0.5) * vh * 0.5;
     setNoPos({ x: newX, y: newY });
-    setNoOpacity(prev => Math.max(prev - 0.15, 0));
+    setNoOpacity(prev => Math.max(prev - 0.2, 0));
   }, []);
 
   const handleYesHover = () => {

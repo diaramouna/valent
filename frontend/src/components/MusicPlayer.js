@@ -78,8 +78,8 @@ const MusicPlayer = ({ shouldPlay }) => {
       <label
         style={{
           position: 'fixed',
-          bottom: '2rem',
-          right: '5rem',
+          bottom: '5rem',
+          right: '2rem',
           zIndex: 50,
           width: 40,
           height: 40,

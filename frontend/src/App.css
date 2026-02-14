@@ -163,7 +163,7 @@
 /* ========= MUSIC PLAYER ========= */
 .music-player {
   position: fixed;
-  bottom: 2rem;
+  bottom: 5rem;
   right: 2rem;
   z-index: 50;
   width: 48px;
