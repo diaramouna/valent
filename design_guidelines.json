@@ -1,0 +1,142 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Valentine for Haby",
+      "tone": "Magical, Intimate, Cinematic, Romantic",
+      "app_type": "Immersive 3D Experience (SPA)",
+      "language": "French"
+    },
+    "colors": {
+      "palette": {
+        "primary": "#4A0404",
+        "primary_foreground": "#FAFAFA",
+        "secondary": "#FFD1DC",
+        "secondary_foreground": "#4A0404",
+        "accent": "#D4AF37",
+        "background_dark": "#1a0505",
+        "background_light": "#fff0f5",
+        "text_dark": "#FAFAFA",
+        "text_light": "#2D0A0A"
+      },
+      "gradients": {
+        "romantic_dark": "linear-gradient(to bottom, #1a0505, #4A0404)",
+        "romantic_light": "linear-gradient(to bottom, #fff0f5, #FFD1DC)",
+        "gold_shimmer": "linear-gradient(45deg, #D4AF37, #F7E7CE, #D4AF37)"
+      }
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Playfair Display, serif",
+        "body": "Montserrat, sans-serif",
+        "handwriting": "Great Vibes, cursive",
+        "typewriter": "Courier Prime, monospace"
+      },
+      "scale": {
+        "hero": "text-5xl md:text-7xl lg:text-8xl",
+        "h1": "text-4xl md:text-6xl",
+        "h2": "text-3xl md:text-5xl",
+        "body": "text-base md:text-lg"
+      }
+    },
+    "layout": {
+      "spacing": "generous",
+      "container": "max-w-4xl mx-auto px-6",
+      "z_index": {
+        "background": -1,
+        "content": 10,
+        "overlay": 20,
+        "cursor": 50,
+        "modal": 100
+      }
+    },
+    "animation": {
+      "library": "framer-motion",
+      "transitions": {
+        "page": {
+          "initial": { "opacity": 0 },
+          "animate": { "opacity": 1 },
+          "exit": { "opacity": 0 },
+          "transition": { "duration": 1.5, "ease": "easeInOut" }
+        },
+        "float": {
+          "y": [0, -20, 0],
+          "transition": { "duration": 3, "repeat": "Infinity", "ease": "easeInOut" }
+        }
+      }
+    }
+  },
+  "assets": {
+    "images": {
+      "texture_bg": "https://images.unsplash.com/photo-1518893063132-36e46dbe2428?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "night_sky": "https://images.unsplash.com/photo-1621525735763-1337f0004fd6?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "clouds": "https://images.unsplash.com/photo-1759240837736-29a76e7e5076?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "icons": {
+      "library": "lucide-react",
+      "custom_cursor": "heart-shape-svg"
+    }
+  },
+  "components": [
+    {
+      "name": "PasswordGate",
+      "path": "/src/components/PasswordGate.js",
+      "description": "Fullscreen dark romantic entry. Particle background. Centered input.",
+      "visuals": {
+        "bg": "bg-[#1a0505]",
+        "particles": "Gold/White floating particles (tsparticles)",
+        "input": "Transparent bg, Gold border-bottom, Text-center, Handwriting font"
+      },
+      "interactions": "Shake on wrong password. Fade out on success. Start music on success."
+    },
+    {
+      "name": "RomanticTimeline",
+      "path": "/src/components/RomanticTimeline.js",
+      "description": "Main scrollable content. Parallax sections.",
+      "visuals": {
+        "section_1": "Typewriter effect: 'My dearest Haby...'",
+        "section_2": "Parallax photo/memory placeholder",
+        "section_3": "Reasons I love you list (staggered animation)"
+      },
+      "interactions": "Scroll-triggered fade-ins (framer-motion whileInView)"
+    },
+    {
+      "name": "ValentineProposal",
+      "path": "/src/components/ValentineProposal.js",
+      "description": "The big question. YES and Runaway NO button.",
+      "visuals": {
+        "bg": "Soft Pink Gradient",
+        "question": "Will you be my Valentine? (Big Handwriting Font)"
+      },
+      "interactions": {
+        "no_button": "Moves randomly away on hover (useMotionValue)",
+        "yes_button": "Triggers confetti explosion and modal reveal",
+        "shooting_stars": "Click anywhere on bg to spawn a shooting star"
+      }
+    },
+    {
+      "name": "MusicPlayer",
+      "path": "/src/components/MusicPlayer.js",
+      "description": "Minimal floating button to toggle sound.",
+      "position": "Fixed bottom-right",
+      "style": "Glassmorphism rounded-full p-3"
+    }
+  ],
+  "technical_instructions": {
+    "dependencies_to_install": [
+      "framer-motion",
+      "canvas-confetti",
+      "@tsparticles/react",
+      "@tsparticles/slim",
+      "react-typewriter-effect"
+    ],
+    "fonts": "Import 'Playfair Display', 'Montserrat', 'Great Vibes', 'Courier Prime' from Google Fonts in index.css",
+    "cursor": "Implement a custom hook useCustomCursor that follows mouse with a trailing heart effect",
+    "music": "Use HTML5 Audio API. Handle browser autoplay policy by waiting for first interaction (password submit).",
+    "universal_guidelines": [
+      "Don't make generic centered layouts.",
+      "Use 2-3x more spacing than feels comfortable.",
+      "Every interaction needs micro-animations.",
+      "Use 'sonner' for toasts."
+    ]
+  }
+}
